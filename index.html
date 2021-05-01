@@ -26,8 +26,8 @@
             <div class="row">
                 <div class="col-3 d-grid">
                     <h2>Search for a City:</h2>>
-                    <input type="text" class="form-control" placeholder="City Name" />
-                    <button class="btn btn-primary btn-block mt-3 py-1">Search</button>
+                    <input type="text" class="form-control" placeholder="City Name" id="city-input"/>
+                    <button class="btn btn-primary btn-block mt-3 py-1" id="search-btn">Search</button>
                     <hr/>
                     <button class="btn btn-secondary btn-block mt-3 py-1 ">Search History</button>
                 </div>
@@ -35,7 +35,10 @@
                     <div class="row">
                         <div class="col">
                             <div class="card">
-                                <h4 class="card-title">City Name</h4>
+                                <h4 class="card-title" id="city-name">City Name</h4>
+                                <p id="temperature">Temp:</p>
+                                <p id="wind"></p>
+                                <p id="humidity"></p>
                             </div>
                         </div>
                     </div>
