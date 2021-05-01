@@ -1,4 +1,19 @@
+:root {
+    --background: #121212;
+}
+
+body {
+    background-color: var(--background);
+}
+
 /* Solid border */
 hr.solid {
-    border-top: 3px solid #bbb;
+    border-top: 3px solid #fff;
+    margin-bottom: 0;
+    padding: 0;
   }
+
+#banner {
+    background-image: linear-gradient(to right, #2961c2, #25004f) 
+  }
+

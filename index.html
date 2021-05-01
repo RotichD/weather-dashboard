@@ -14,76 +14,77 @@
       <header>
         <div class="container-xl">
             <div class="row mb-3">
-                <div class="col-12">
-                    <h1 class="text-center">Weather Dashboard</h1>
+                <div class="col-12" id="banner">
+                    <h1 class="text-center pt-2 text-white">Weather Dashboard</h1>
                 </div> 
             </div>
         </div>
       </header>
 
       <main>
-        <div class="container-xl">
+        <div class="container-xl" id="super-container">
             <div class="row">
                 <div class="col-3 d-grid">
-                    <h2>Search for a City:</h2>>
+                    <h2 class="text-white">Search for a City:</h2>
                     <input type="text" class="form-control" placeholder="City Name" id="city-input"/>
-                    <button class="btn btn-primary btn-block mt-3 py-1" id="search-btn">Search</button>
-                    <hr/>
-                    <button class="btn btn-secondary btn-block mt-3 py-1 ">Search History</button>
+                    <button class="btn btn-primary btn-block mt-3" id="search-btn">Search</button>
+                    <hr class="bg-white" />
+                    <button class="btn btn-secondary btn-block mt-3">Search History</button>
                 </div>
                 <div class="col-9">
                     <div class="row">
                         <div class="col">
-                            <div class="card">
+                            <div class="card bg-light px-3 py-3">
                                 <h4 class="card-title" id="city-name">City Name</h4>
                                 <p id="temperature">Temp:</p>
-                                <p id="wind"></p>
-                                <p id="humidity"></p>
+                                <p id="wind">Wind:</p>
+                                <p id="humidity">Humidity</p>
+                                <p id="uv-index">UV Index:</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <h5>5-Day Forecast:</h5>
+                        <h5 class="text-white">5-Day Forecast:</h5>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="card">
+                            <div class="card bg-light px-3 py-3">
                                 <h6 class="card-title">4/29/2021</h6>
-                                <p>Temp</p>
-                                <p>Wind</p>
-                                <p>Humidity</p>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Wind</p>
+                                <p class="card-text">Humidity</p>
+                            </div>
+                        </div>
+                        <div class="col"> 
+                            <div class="card bg-light px-3 py-3">
+                                <h6 class="card-title">4/29/2021</h6>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Wind</p>
+                                <p class="card-text">Humidity</p>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card">
+                            <div class="card bg-light px-3 py-3">
                                 <h6 class="card-title">4/29/2021</h6>
-                                <p>Temp</p>
-                                <p>Wind</p>
-                                <p>Humidity</p>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Wind</p>
+                                <p class="card-text">Humidity</p>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card">
+                            <div class="card bg-light px-3 py-3">
                                 <h6 class="card-title">4/29/2021</h6>
-                                <p>Temp</p>
-                                <p>Wind</p>
-                                <p>Humidity</p>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Wind</p>
+                                <p class="card-text">Humidity</p>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card">
+                            <div class="card bg-light px-3 py-3">
                                 <h6 class="card-title">4/29/2021</h6>
-                                <p>Temp</p>
-                                <p>Wind</p>
-                                <p>Humidity</p>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <h6 class="card-title">4/29/2021</h6>
-                                <p>Temp</p>
-                                <p>Wind</p>
-                                <p>Humidity</p>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Wind</p>
+                                <p class="card-text">Humidity</p>
                             </div>
                         </div>
                     </div>
