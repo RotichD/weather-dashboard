@@ -18,6 +18,12 @@ const displayWeather = function() {
         var cityTempEl = document.getElementById("temperature");
         cityTempEl.innerHTML = "Temp: " + convertTemp(data.main.temp).toFixed(2);
 
+        var cityWindEl = document.getElementById("wind");
+        cityWindEl.innerHTML = "Wind: " + convertWind(data.wind.speed).toFixed(2);
+
+        var cityHumidityEl = document.getElementById("humidity");
+        cityHumidityEl.innerHTML = "Humidity: " + data.main.humidity + "%";
+
     });
   });
 }
@@ -27,6 +33,10 @@ displayWeather();
 var convertTemp = function(k) {
 
     return (k - 273.15) * 9/5 + 32;
+}
+
+var convertWind = function(mps) {
+    return mps * 2.237;
 }
 
 
