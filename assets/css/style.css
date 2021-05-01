@@ -29,3 +29,8 @@ hr.solid {
     background-color: var(--transparent-grey);
 }
 
+/*  UV Index rating classes */
+
+.uv-min {
+    background-color: green;
+}
