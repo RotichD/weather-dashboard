@@ -1,8 +1,14 @@
 const apiKey = "f97301447cbd41068af8623a398ba1fb";
 var cityName = "Los Angeles";
 var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+var lat = "";
+var lon = "";
+var uvIndex = "";
+
 
 //api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+
 
  
 const displayWeather = function() {
@@ -23,6 +29,27 @@ const displayWeather = function() {
 
         var cityHumidityEl = document.getElementById("humidity");
         cityHumidityEl.innerHTML = "Humidity: " + data.main.humidity + "%";
+
+        const getUVIndex = function(location) {
+            lat = data.coord.lat;
+            lon = data.coord.lon;
+            var indexUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+        
+            fetch(indexUrl).then(function(response) {
+                response.json().then(function(data) {
+                    
+                    uvIndex = data.current.uvi;
+                    console.log(uvIndex);
+
+                    var cityUVIndex = document.getElementById("uv-index");
+                    cityUVIndex.innerHTML = "UV: " + uvIndex;
+                })  
+            })
+        }
+
+        getUVIndex(cityName);
+
+        
 
     });
   });
