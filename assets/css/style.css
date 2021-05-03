@@ -32,5 +32,21 @@ hr.solid {
 /*  UV Index rating classes */
 
 .uv-min {
-    background-color: green;
+    background-color: rgba(63, 191, 63, .65);
+}
+
+.uv-mod {
+    background-color: rgba(255, 216, 25, .65);
+}
+
+.uv-high {
+    background-color: rgba(255, 140, 25, .65);
+}
+
+.uv-vhigh {
+    background-color: rgba(255, 25, 25, .65);
+}
+
+.uv-ehigh {
+    background-color: rgba(140, 25, 255, .65);
 }
