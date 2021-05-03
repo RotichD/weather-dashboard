@@ -25,6 +25,12 @@ var humidThree = document.getElementById("humid3");
 var humidFour = document.getElementById("humid4");
 var humidFive = document.getElementById("humid5");
 
+var iconOne = document.getElementById("icon1");
+var iconTwo = document.getElementById("icon2");
+var iconThree = document.getElementById("icon3");
+var iconFour = document.getElementById("icon4");
+var iconFive = document.getElementById("icon5");
+
 
 
 
@@ -50,6 +56,19 @@ const displayFiveDay = function(location) {
             windThree.innerHTML = "Wind: " + convertWind(fiveDay.list[2].wind.speed).toFixed(2) + " mph";
             windFour.innerHTML = "Wind: " + convertWind(fiveDay.list[3].wind.speed).toFixed(2) + " mph";
             windFive.innerHTML = "Wind: " + convertWind(fiveDay.list[4].wind.speed).toFixed(2) + " mph";
+
+            humidOne.innerHTML = "Humidity: " + fiveDay.list[0].main.humidity.toFixed(0) + "%";
+            humidTwo.innerHTML = "Humidity: " + fiveDay.list[1].main.humidity.toFixed(0) + "%";
+            humidThree.innerHTML = "Humidity: " + fiveDay.list[2].main.humidity.toFixed(0) + "%";
+            humidFour.innerHTML = "Humidity: " + fiveDay.list[3].main.humidity.toFixed(0) + "%";
+            humidFive.innerHTML = "Humidity: " + fiveDay.list[4].main.humidity.toFixed(0) + "%";
+
+            iconOne.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[0].weather[0].icon + '.png" />' + fiveDay.list[0].weather[0].description;
+            iconTwo.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[1].weather[0].icon + '.png" />' + fiveDay.list[1].weather[0].description;
+            iconThree.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[2].weather[0].icon + '.png" />' + fiveDay.list[2].weather[0].description;
+            iconFour.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[3].weather[0].icon + '.png" />' + fiveDay.list[3].weather[0].description;
+            iconFive.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[4].weather[0].icon + '.png" />' + fiveDay.list[4].weather[0].description;
+            
         })
     })
 }
