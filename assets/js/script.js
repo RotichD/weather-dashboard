@@ -6,6 +6,7 @@ var lon = "";
 var uvIndex = "";
 var uvIndicator = document.getElementById("uv-color");
 uvIndicator.className = "";
+var bigWeather = document.getElementById("big-weather");
 
 var tempOne = document.getElementById("temp1");
 var tempTwo = document.getElementById("temp2");
@@ -31,6 +32,12 @@ var iconThree = document.getElementById("icon3");
 var iconFour = document.getElementById("icon4");
 var iconFive = document.getElementById("icon5");
 
+var dayOne = document.getElementById("day1");
+var dayTwo = document.getElementById("day2");
+var dayThree = document.getElementById("day3");
+var dayFour = document.getElementById("day4");
+var dayFive = document.getElementById("day5");
+
 
 
 
@@ -46,34 +53,50 @@ const displayFiveDay = function(location) {
             console.log(fiveDay);
 
             tempOne.innerHTML = "Temp: " + convertTemp(fiveDay.list[0].main.temp).toFixed(2) + " F°";
-            tempTwo.innerHTML = "Temp: " + convertTemp(fiveDay.list[1].main.temp).toFixed(2) + " F°";
-            tempThree.innerHTML = "Temp: " + convertTemp(fiveDay.list[2].main.temp).toFixed(2) + " F°";
-            tempFour.innerHTML = "Temp: " + convertTemp(fiveDay.list[3].main.temp).toFixed(2) + " F°";
-            tempFive.innerHTML = "Temp: " + convertTemp(fiveDay.list[4].main.temp).toFixed(2) + " F°";
+            tempTwo.innerHTML = "Temp: " + convertTemp(fiveDay.list[8].main.temp).toFixed(2) + " F°";
+            tempThree.innerHTML = "Temp: " + convertTemp(fiveDay.list[16].main.temp).toFixed(2) + " F°";
+            tempFour.innerHTML = "Temp: " + convertTemp(fiveDay.list[24].main.temp).toFixed(2) + " F°";
+            tempFive.innerHTML = "Temp: " + convertTemp(fiveDay.list[32].main.temp).toFixed(2) + " F°";
 
             windOne.innerHTML = "Wind: " + convertWind(fiveDay.list[0].wind.speed).toFixed(2) + " mph";
-            windTwo.innerHTML = "Wind: " + convertWind(fiveDay.list[1].wind.speed).toFixed(2) + " mph";
-            windThree.innerHTML = "Wind: " + convertWind(fiveDay.list[2].wind.speed).toFixed(2) + " mph";
-            windFour.innerHTML = "Wind: " + convertWind(fiveDay.list[3].wind.speed).toFixed(2) + " mph";
-            windFive.innerHTML = "Wind: " + convertWind(fiveDay.list[4].wind.speed).toFixed(2) + " mph";
+            windTwo.innerHTML = "Wind: " + convertWind(fiveDay.list[8].wind.speed).toFixed(2) + " mph";
+            windThree.innerHTML = "Wind: " + convertWind(fiveDay.list[16].wind.speed).toFixed(2) + " mph";
+            windFour.innerHTML = "Wind: " + convertWind(fiveDay.list[24].wind.speed).toFixed(2) + " mph";
+            windFive.innerHTML = "Wind: " + convertWind(fiveDay.list[32].wind.speed).toFixed(2) + " mph";
 
             humidOne.innerHTML = "Humidity: " + fiveDay.list[0].main.humidity.toFixed(0) + "%";
-            humidTwo.innerHTML = "Humidity: " + fiveDay.list[1].main.humidity.toFixed(0) + "%";
-            humidThree.innerHTML = "Humidity: " + fiveDay.list[2].main.humidity.toFixed(0) + "%";
-            humidFour.innerHTML = "Humidity: " + fiveDay.list[3].main.humidity.toFixed(0) + "%";
-            humidFive.innerHTML = "Humidity: " + fiveDay.list[4].main.humidity.toFixed(0) + "%";
+            humidTwo.innerHTML = "Humidity: " + fiveDay.list[8].main.humidity.toFixed(0) + "%";
+            humidThree.innerHTML = "Humidity: " + fiveDay.list[16].main.humidity.toFixed(0) + "%";
+            humidFour.innerHTML = "Humidity: " + fiveDay.list[24].main.humidity.toFixed(0) + "%";
+            humidFive.innerHTML = "Humidity: " + fiveDay.list[32].main.humidity.toFixed(0) + "%";
 
             iconOne.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[0].weather[0].icon + '.png" />' + fiveDay.list[0].weather[0].description;
-            iconTwo.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[1].weather[0].icon + '.png" />' + fiveDay.list[1].weather[0].description;
-            iconThree.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[2].weather[0].icon + '.png" />' + fiveDay.list[2].weather[0].description;
-            iconFour.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[3].weather[0].icon + '.png" />' + fiveDay.list[3].weather[0].description;
-            iconFive.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[4].weather[0].icon + '.png" />' + fiveDay.list[4].weather[0].description;
+            iconTwo.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[8].weather[0].icon + '.png" />' + fiveDay.list[8].weather[0].description;
+            iconThree.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[16].weather[0].icon + '.png" />' + fiveDay.list[16].weather[0].description;
+            iconFour.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[24].weather[0].icon + '.png" />' + fiveDay.list[24].weather[0].description;
+            iconFive.innerHTML = '<img src="http://openweathermap.org/img/wn/' + fiveDay.list[32].weather[0].icon + '.png" />' + fiveDay.list[32].weather[0].description;
+
+            dayOne.innerHTML = fiveDay.list[0].dt_txt.substring(0, 10);
+            dayTwo.innerHTML = fiveDay.list[8].dt_txt.substring(0, 10);
+            dayThree.innerHTML = fiveDay.list[16].dt_txt.substring(0, 10);
+            dayFour.innerHTML = fiveDay.list[24].dt_txt.substring(0, 10);
+            dayFive.innerHTML = fiveDay.list[32].dt_txt.substring(0, 10);
+            
+            
             
         })
     })
 }
 
-
+const timeToDate = function (unixUtc) {
+    date = new Date(unixUtc * 1000),
+    datevalues = [
+        date.getFullYear(),
+        date.getMonth()+1,
+        date.getDate(),
+    ];
+    return datevalues[1] + "/" + datevalues[2] + "/" + datevalues[0];
+}; 
  
 const displayWeather = function() {
 
@@ -83,16 +106,17 @@ const displayWeather = function() {
       //console.log(data);
 
         var cityNameEl = document.getElementById("city-name");
-        cityNameEl.innerHTML = data.name;
+        cityNameEl.innerHTML = data.name + '<img src="http://openweathermap.org/img/wn/' + data.weather[0].icon + '.png" />' + data.weather[0].description;
 
         var cityTempEl = document.getElementById("temperature");
-        cityTempEl.innerHTML = "Temp: " + convertTemp(data.main.temp).toFixed(2);
+        cityTempEl.innerHTML = "Temp: " + convertTemp(data.main.temp).toFixed(2) + " F°";
 
         var cityWindEl = document.getElementById("wind");
         cityWindEl.innerHTML = "Wind: " + convertWind(data.wind.speed).toFixed(2);
 
         var cityHumidityEl = document.getElementById("humidity");
         cityHumidityEl.innerHTML = "Humidity: " + data.main.humidity + "%";
+
 
         const getUVIndex = function(location) {
             lat = data.coord.lat;
@@ -136,7 +160,7 @@ const displayWeather = function() {
   });
 }
 
-displayWeather();
+
 
 var convertTemp = function(k) {
 
