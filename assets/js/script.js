@@ -1,9 +1,10 @@
+// Variables for api
 const apiKey = "f97301447cbd41068af8623a398ba1fb";
 var cityName = "";
 var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
 var lat = "";
 var lon = "";
-var uvIndex = "";
+// variables for updating elements
 var uvIndicator = document.getElementById("uv-color");
 uvIndicator.className = "";
 var bigWeather = document.getElementById("big-weather");
@@ -38,8 +39,7 @@ var dayThree = document.getElementById("day3");
 var dayFour = document.getElementById("day4");
 var dayFive = document.getElementById("day5");
 
-//api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-
+// Fetches 5 Day weather forecast and populates cards
 const displayFiveDay = function (location) {
   var fiveDayUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
 
@@ -116,21 +116,24 @@ const displayFiveDay = function (location) {
   });
 };
 
+// converts unix UTC code to human readable format
 const timeToDate = function (unixUtc) {
   (date = new Date(unixUtc * 1000)),
     (datevalues = [date.getFullYear(), date.getMonth() + 1, date.getDate()]);
   return datevalues[1] + "/" + datevalues[2] + "/" + datevalues[0];
 };
-
+// fetches data from open weather api and populates main weather card
 const displayWeather = function () {
   // make a request to the url
   fetch(apiUrl).then(function (response) {
     response.json().then(function (data) {
-      //console.log(data);
+      console.log(data);
 
       var cityNameEl = document.getElementById("city-name");
       cityNameEl.innerHTML =
         data.name +
+        " " +
+        timeToDate(data.dt) +
         '<img src="http://openweathermap.org/img/wn/' +
         data.weather[0].icon +
         '.png" />' +
@@ -147,29 +150,28 @@ const displayWeather = function () {
       cityHumidityEl.innerHTML = "Humidity: " + data.main.humidity + "%";
 
       const getUVIndex = function (location) {
+        // fetches UV Index data from openweather once call api
         lat = data.coord.lat;
         lon = data.coord.lon;
         var indexUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
         fetch(indexUrl).then(function (response) {
           response.json().then(function (data) {
+            var uvIndex = "";
             uvIndex = data.current.uvi;
-            //console.log(uvIndex);
 
             var cityUVIndex = document.getElementById("uv-index");
             cityUVIndex.innerHTML = "UV: " + uvIndex;
 
-            //var uvBackgroundColor = document.getElementById("uv-color");
-
             if (uvIndex < 3) {
               uvIndicator.className = "uv-min";
-            } else if (uvIndicator >= 3 && uvIndicator < 6) {
+            } else if (uvIndex >= 3 && uvIndex < 6) {
               uvIndicator.className = "uv-mod";
-            } else if (uvIndicator >= 6 && uvIndicator < 8) {
+            } else if (uvIndex >= 6 && uvIndex < 8) {
               uvIndicator.className = "uv-high";
-            } else if (uvIndicator >= 8 && uvIndicator < 11) {
+            } else if (uvIndex >= 8 && uvIndex < 11) {
               uvIndicator.className = "uv-vhigh";
-            } else if (uvIndicator > 11) {
+            } else if (uvIndex > 11) {
               uvIndicator.className = "uv-ehigh";
             }
           });
@@ -183,10 +185,12 @@ const displayWeather = function () {
   });
 };
 
+// converts Kelvin temperature to Farenheit
 var convertTemp = function (k) {
   return ((k - 273.15) * 9) / 5 + 32;
 };
 
+// converts meters per second to miles per hour
 var convertWind = function (mps) {
   return mps * 2.237;
 };
